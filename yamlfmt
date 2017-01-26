@@ -1,0 +1,54 @@
+#!/usr/bin/env python
+
+import argparse
+import os
+import pathlib
+import sys
+import tempfile
+
+from ruamel import yaml
+
+parser = argparse.ArgumentParser()
+parser.add_argument('file', help='file to parse', nargs='*')
+parser.add_argument('-w', '--write',
+                    help='write formatted outpout to (source) file instead of stdout',
+                    action='store_true')
+args = parser.parse_args()
+
+def round_trip(sout, sin):
+    y = yaml.round_trip_load(sin)
+    yaml.round_trip_dump(y, sout)
+
+
+if args.write and not args.file:
+    parser.error('write requires at least one file')
+
+
+if not args.file:
+    round_trip(sys.stdout, sys.stdin)
+    sys.exit(0)
+
+
+def make_temp_file(name):
+    p = pathlib.Path(name)
+    fd, outname = tempfile.mkstemp(prefix=name+'.', dir=p.parent)
+    stat = os.stat(name)
+    os.fchmod(fd, stat.st_mode)
+    os.fchown(fd, stat.st_uid, stat.st_gid)
+    os.close(fd)
+    return outname
+
+if not args.write:
+    file_out = os.ttyname(sys.stdout.fileno())
+
+
+for file in args.file:
+    if args.write:
+        file_out = make_temp_file(file)
+
+    with open(file, 'r') as sin, open(file_out, 'w') as sout:
+        round_trip(sout, sin)
+
+    if args.write:
+        os.rename(file_out, file)
+
