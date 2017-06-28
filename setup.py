@@ -13,7 +13,7 @@ setup(
         url='https://github.com/mmlb/yamlfmt',
         author='Manuel Mendez',
         author_email='mmendez534@gmail.com',
-        version='0.1.4',
+        version='0.1.5',
         scripts=['yamlfmt'],
         license='[MPLv2.0](https://mozilla.org/MPL/2.0/)',
         install_requires=['ruamel.yaml<0.15'],
