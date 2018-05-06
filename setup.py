@@ -27,5 +27,5 @@ setup(
     python_requires='>=3.0',
     scripts=['yamlfmt'],
     url='https://github.com/mmlb/yamlfmt',
-    version='0.1.5',
+    version='0.1.6',
 )
