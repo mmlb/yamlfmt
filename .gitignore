@@ -1,2 +1,3 @@
+build/
 dist/
-yamlfmt.egg-info
+yamlfmt.egg-info/
