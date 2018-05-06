@@ -1,10 +1,7 @@
 from setuptools import setup
 
-try:
-    import pypandoc
-    long_description = pypandoc.convert('README.md', 'rst')
-except ImportError:
-    long_description = open('README.md').read()
+with open('README') as f:
+    long_description = f.read()
 
 classifiers = [
     'License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)',
@@ -21,6 +18,7 @@ setup(
     keywords='yaml format',
     license='[MPLv2.0](https://mozilla.org/MPL/2.0/)',
     long_description=long_description,
+    long_description_content_type='text/markdown',
     name='yamlfmt',
     scripts=['yamlfmt'],
     url='https://github.com/mmlb/yamlfmt',
