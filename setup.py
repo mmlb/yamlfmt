@@ -1,11 +1,15 @@
+import sys
 from setuptools import setup
+
+if sys.version_info[0] < 3:
+    sys.stderr.write('Python < 3 is unsupported')
 
 with open('README') as f:
     long_description = f.read()
 
 classifiers = [
     'License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)',
-    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3 :: Only',
     'Topic :: Utilities',
 ]
 
@@ -20,6 +24,7 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     name='yamlfmt',
+    python_requires='>=3.0',
     scripts=['yamlfmt'],
     url='https://github.com/mmlb/yamlfmt',
     version='0.1.5',
