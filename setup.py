@@ -20,7 +20,7 @@ setup(
     description='An opinionated yaml formatter based on ruamel.yaml',
     install_requires=['ruamel.yaml<0.15'],
     keywords='yaml format',
-    license='[MPLv2.0](https://mozilla.org/MPL/2.0/)',
+    license='MPL 2.0',
     long_description=long_description,
     long_description_content_type='text/markdown',
     name='yamlfmt',
