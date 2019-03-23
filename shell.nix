@@ -7,6 +7,7 @@ stdenv.mkDerivation rec {
   env = buildEnv { name = name; paths = buildInputs; };
   buildInputs = [
     python3
+    python3Packages.black
     python3Packages.setuptools
     python3Packages.twine
     python3Packages.wheel
