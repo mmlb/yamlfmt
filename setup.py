@@ -4,7 +4,7 @@ with open("README") as f:
     long_description = f.read()
 
 classifiers = [
-    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 2",
     "Topic :: Utilities",
@@ -17,11 +17,11 @@ setup(
     description="An opinionated yaml formatter based on ruamel.yaml",
     install_requires=["ruamel.yaml<0.15"],
     keywords="yaml formatter",
-    license="MPL 2.0",
+    license="GPLV3",
     long_description=long_description,
     long_description_content_type="text/markdown",
     name="yamlfmt",
     scripts=["yamlfmt"],
     url="https://github.com/mmlb/yamlfmt",
-    version="0.1.7",
+    version="1.0.0",
 )
