@@ -21,7 +21,7 @@ def round_trip(sout, sin):
 
 def make_temp_file(name):
     p = pathlib.Path(name)
-    fd, outname = tempfile.mkstemp(prefix=name + '.', dir=p.parent)
+    fd, outname = tempfile.mkstemp(prefix=p.name + '.', dir=p.parent)
     stat = os.stat(name)
     os.fchmod(fd, stat.st_mode)
     os.fchown(fd, stat.st_uid, stat.st_gid)
