@@ -15,7 +15,7 @@ setup(
     author_email="mmendez534@gmail.com",
     classifiers=classifiers,
     description="An opinionated yaml formatter based on ruamel.yaml",
-    install_requires=["ruamel.yaml>0.15,<0.16"],
+    install_requires=["ruamel.yaml<0.16"],
     keywords="yaml formatter",
     license="GPLV3",
     long_description=long_description,
