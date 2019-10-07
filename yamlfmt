@@ -10,12 +10,13 @@ from ruamel import yaml
 parser = argparse.ArgumentParser()
 parser.add_argument('file', help='file to parse', nargs='*')
 parser.add_argument('-w', '--write', help='overwrite file with formatted output', action='store_true')
+parser.add_argument('-t', '--width', help='set custom width', type=int, required=False, default=80)
 args = parser.parse_args()
 
 
-def round_trip(sout, sin):
+def round_trip(sout, sin, custom_width):
     y = yaml.round_trip_load(sin)
-    yaml.round_trip_dump(y, sout)
+    yaml.round_trip_dump(y, sout, width=custom_width)
 
 
 def make_temp_file(name):
@@ -34,7 +35,7 @@ def main():
         parser.error('write requires at least one file')
 
     if not args.file:
-        round_trip(sys.stdout, sys.stdin)
+        round_trip(sys.stdout, sys.stdin, args.width)
         sys.exit(0)
 
     if not args.write:
@@ -45,7 +46,7 @@ def main():
             file_out = make_temp_file(file)
 
         with open(file, 'r') as sin, open(file_out, 'w') as sout:
-            round_trip(sout, sin)
+            round_trip(sout, sin, args.width)
 
         if args.write:
             os.rename(file_out, file)
