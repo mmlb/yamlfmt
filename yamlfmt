@@ -10,12 +10,13 @@ from ruamel import yaml
 parser = argparse.ArgumentParser()
 parser.add_argument('file', help='file to parse', nargs='*')
 parser.add_argument('-w', '--write', help='overwrite file with formatted output', action='store_true')
+parser.add_argument('--use-yaml-1-1', help='force yaml output to version 1.1', action='store_true')
 args = parser.parse_args()
 
 
 def round_trip(sout, sin):
     y = yaml.round_trip_load(sin)
-    yaml.round_trip_dump(y, sout)
+    yaml.round_trip_dump(y, sout, version=(1,1) if args.use_yaml_1_1 else None)
 
 
 def make_temp_file(name):
