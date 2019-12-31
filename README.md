@@ -12,7 +12,7 @@ Once a format seems to stick v1.0 will be tagged and the format will not change.
 
 ```sh
 ❯ yamlfmt -h
-usage: yamlfmt [-h] [-w] [file [file ...]]
+usage: yamlfmt [-h] [-w] [-i INDENT] [file [file ...]]
 
 positional arguments:
   file         file to parse
@@ -20,6 +20,7 @@ positional arguments:
 optional arguments:
   -h, --help   show this help message and exit
   -w, --write  write formatted outpout to (source) file instead of stdout
+  -i, --indent set indent for formatted output
 ```
 
 ### Examples
