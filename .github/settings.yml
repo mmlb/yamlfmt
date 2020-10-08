@@ -1,3 +1,4 @@
+_extends: .github
 repository:
   name: yamlfmt
   description: A simple opionated yaml formatter that keeps your comments!
