@@ -1,8 +1,8 @@
 import subprocess
 import shlex
 
-import yamlfmt_tmp
-from yamlfmt_tmp.yamlfmt import round_trip
+import yamlfmt
+from yamlfmt.yamlfmt import round_trip
 
 
 def test_simple():

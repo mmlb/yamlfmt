@@ -5,8 +5,9 @@ with open("README") as f:
 
 classifiers = [
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 2",
+    # minimum supported version as determined by vermin
+    "Programming Language :: Python :: 3.2",
+    "Programming Language :: Python :: 2.7",
     "Topic :: Utilities",
 ]
 
