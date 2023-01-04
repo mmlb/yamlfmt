@@ -5,7 +5,7 @@ import os
 import sys
 import tempfile
 
-from ruamel import yaml
+from ruamel.yaml import YAML
 
 parser = argparse.ArgumentParser()
 parser.add_argument('file', help='file to parse', nargs='*')
@@ -14,8 +14,10 @@ args = parser.parse_args()
 
 
 def round_trip(sout, sin):
-    y = yaml.round_trip_load(sin)
-    yaml.round_trip_dump(y, sout)
+    yaml = YAML()
+    yaml.default_flow_style = False
+    y = yaml.load(sin)
+    yaml.dump(y, sout)
 
 
 def make_temp_file(name):
