@@ -12,14 +12,14 @@ Once a format seems to stick v1.0 will be tagged and the format will not change.
 
 ```sh
 ❯ yamlfmt -h
-usage: yamlfmt [-h] [-w] [file [file ...]]
+usage: yamlfmt [-h] [-w] [file ...]
 
 positional arguments:
   file         file to parse
 
-optional arguments:
+options:
   -h, --help   show this help message and exit
-  -w, --write  write formatted outpout to (source) file instead of stdout
+  -w, --write  overwrite file with formatted output
 ```
 
 ### Examples
