@@ -23,5 +23,5 @@ setup(
     name="yamlfmt",
     scripts=["yamlfmt"],
     url="https://github.com/mmlb/yamlfmt",
-    version="1.1.0",
+    version="1.1.1",
 )
